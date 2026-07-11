@@ -26,9 +26,7 @@ To easily launch the scanner with full Administrator privileges and bypass Windo
 2. Right-click on your **Desktop** -> select **New** -> **Shortcut**.
 3. In the location field, copy and paste the following command and click **Next**:
 
-```powershell
-powershell.exe -NoExit -ExecutionPolicy Bypass -File "\$HOME\Downloads\PancakeScanner-3.2\PancakeScanner-3.2\SuperScanner.ps1"
-```
+powershell.exe -NoExit -ExecutionPolicy Bypass -File "$HOME\Downloads\PancakeScanner-3.2\PancakeScanner-3.2\SuperScanner.ps1
 
 4. Name the shortcut `PancakeScanner`, click **Finish**, then right-click your new shortcut -> choose **Properties** -> click the **Advanced...** button -> check **Run as administrator** and click **OK**.
 
