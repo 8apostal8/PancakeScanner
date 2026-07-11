@@ -1,4 +1,4 @@
-# 🥞 PancakeScanner v3.2 (PowerShell)
+# 🥞 PancakeScanner v3.3 (PowerShell)
 
 **PancakeScanner** is a fast, lightweight, and completely open-source Windows security scanner built with PowerShell. It scans your system in less than 3 seconds to detect hidden registry startup traps, adware shortcuts, high-CPU miners, and malicious services that standard antiviruses often miss.
 
@@ -26,7 +26,7 @@ To easily launch the scanner with full Administrator privileges and bypass Windo
 2. Right-click on your **Desktop** -> select **New** -> **Shortcut**.
 3. In the location field, copy and paste the following command and click **Next**:
 
-Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Unblock-File -Path "$HOME\Downloads\PancakeScanner-3.2\PancakeScanner-3.2\SuperScanner.ps1"; & "$HOME\Downloads\PancakeScanner-3.2\PancakeScanner-3.2\SuperScanner.ps1"
+Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Get-ChildItem -Path "$HOME\Downloads\PancakeScanner-3.3" -Recurse | Unblock-File; cd "$HOME\Downloads\PancakeScanner-3.3\PancakeScanner-3.3"; .\SuperScanner.ps1
 
 4. Name the shortcut `PancakeScanner`, click **Finish**, then right-click your new shortcut -> choose **Properties** -> click the **Advanced...** button -> check **Run as administrator** and click **OK**.
 
