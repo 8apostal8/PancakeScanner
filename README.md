@@ -1,4 +1,4 @@
-# 🥞 PancakeScanner v3.4 (PowerShell)
+# 🥞 PancakeScanner v3.6 (PowerShell)
 
 **PancakeScanner** is a fast, lightweight, and completely open-source Windows security scanner built with PowerShell. It scans your system in less than 3 seconds to detect hidden registry startup traps, adware shortcuts, high-CPU miners, and malicious services that standard antiviruses often miss.
 
@@ -20,13 +20,14 @@
 
 ## 🛠️ How to Run:
 
-1. Download and extract the **PancakeScanner** ZIP archive from the **Releases** section to your computer [INDEX: 20].
+1. Download and extract the **PancakeScanner** ZIP archive from the **Releases** section to your computer.
 2. Press **Win + X** on your keyboard and launch **Terminal (Admin)** or **PowerShell (Admin)**.
 3. Copy, paste the following command into the terminal, and hit **ENTER**:
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Get-ChildItem -Path "$HOME\Downloads\PancakeScanner-3.4" -Recurse | Unblock-File; cd "$HOME\Downloads\PancakeScanner-3.4\PancakeScanner-3.4"; .\SuperScanner.ps1
+Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Get-ChildItem -Path "\(HOME\Downloads\PancakeScanner-3.6" -Recurse \vert{} Unblock-File; cd "\)HOME\Downloads\PancakeScanner-3.6\PancakeScanner-3.6"; .\SuperScanner.ps1
 ```
 
 ---
 *Powered by Pancake Power. The source code is entirely open for audit and completely safe to use.*
+
