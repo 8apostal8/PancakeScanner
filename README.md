@@ -1,13 +1,13 @@
-# 🥞 PancakeScanner v3 (PowerShell)
+# 🥞 PancakeScanner v3.0 (PowerShell)
 
-**PancakeScanner** is a fast, lightweight, and completely open-source Windows security scanner built with PowerShell. It scans your system in less than 3 seconds to detect hidden registry startup traps, adware shortcuts, high-CPU miners, and malicious services that standard antiviruses often miss.
+**PancakeScanner** is a fast, lightweight, and completely open-source Windows security scanner built with PowerShell. It scans your system in less than 3 seconds to detect hidden registry startup traps, adware shortcuts, high-CPU miners, and malicious services that standard antiviruses often miss [INDEX: 14, 20].
 
 ---
 
 ## 🚀 Key Features (10-Point Defense System):
-* **IFEO Injection Scan:** Detects hidden Image File Execution Options registry traps used by malware to hijack system apps.
+* **IFEO Injection Scan:** Detects hidden Image File Execution Options registry traps used by malware to hijack system apps [INDEX: 18].
 * **Winlogon Shell Integrity:** Checks if core system shells (`explorer.exe` and `userinit.exe`) have been modified or replaced.
-* **Suspicious Services Audit:** Automatically scans user-writable directories (`AppData`, `Temp`, `Users`) for active malicious background services.
+* **Suspicious Services Audit:** Automatically scans user-writable directories (`AppData`, `Temp`, `Users`) for active malicious background services [INDEX: 18, 24].
 * **Smart Task Scheduler Filter:** Hides hundreds of native Microsoft tasks to display only third-party custom tasks (malware persistence, network bypass utilities like Zapret, etc.).
 * **Windows Defender Exclusions Check:** Reveals if any directory has been secretly whitelisted by a trojan.
 * **HOSTS File Analysis:** Scans for unauthorized redirection loops or anti-malware website blockades.
@@ -18,21 +18,21 @@
 
 ---
 
-## 🛠️ How to Download and Run:
+## 🛠️ How to Download and Run (The Easiest Way):
 
-Since Windows blocks self-made PowerShell scripts by default for safety reasons, execute the scanner using this simple and foolproof method:
+To easily launch the scanner with full Administrator privileges and bypass Windows security flags without opening the terminal manually, follow these 4 simple steps:
 
-1. Download the `SuperScanner.ps1` file from the **Releases** section to your computer.
-2. Press **Win + X** on your keyboard and launch **Terminal (Admin)** or **PowerShell (Admin)**.
-3. Copy and paste the following short command into the terminal window to temporarily allow script execution, then hit **ENTER**:
-
-```powershell
-Set-ExecutionPolicy RemoteSigned -Scope Process -Force
+1. Download and extract the **PancakeScanner** ZIP archive from the **Releases** section to your computer [INDEX: 20].
+2. Right-click on your **Desktop** -> select **New** -> **Shortcut**.
+3. In the location field, copy and paste the following single line and click **Next**:
+```text
+powershell.exe -NoExit -ExecutionPolicy Bypass -File "%USERPROFILE%\Downloads\PancakeScanner-3.2\PancakeScanner-3.2\SuperScanner.ps1"
 ```
+*(Note: If you extracted the folder to a different path, just make sure to update the directory location in the command above).*
 
-4. Now, simply **drag and drop** your downloaded `SuperScanner.ps1` file directly into that terminal window (Windows will automatically fill in the correct path) and hit **ENTER** to run the scan!
+4. Name the shortcut `PancakeScanner`, click **Finish**, then right-click your new shortcut -> choose **Properties** -> click the **Advanced...** button -> check **Run as administrator** and click **OK**.
 
-5. The scanner completes its diagnostic run in roughly 3 seconds. Safe parameters are highlighted in **green**, while suspicious triggers turn **red/yellow**.
+🎉 **That's it!** Now you can simply double-click this Desktop shortcut anytime you want to audit your PC. The scan will complete in 3 seconds, and the window will stay open for you to read the clean green logs!
 
 ---
-*Powered by Pancake Power. The source code is entirely open for audit and completely safe to use.*
+*Powered by Pancake Power. The source code is entirely open for audit and completely safe to use [INDEX: 20].*
