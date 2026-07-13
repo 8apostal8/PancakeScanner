@@ -25,7 +25,7 @@
 3. Copy, paste the following command into the terminal, and hit **ENTER**:
 
 ```powershell
-Set-ExecutionPolicy RemoteSigned -Scope Process -Force; Unblock-File -Path "$HOME\Downloads\PancakeScanner-3.8\PancakeScanner-3.8\SuperScanner.ps1"; cd "$HOME\Downloads\PancakeScanner-3.8\PancakeScanner-3.8"; .\SuperScanner.ps1
+Set-ExecutionPolicy RemoteSigned -Scope Process -Force; $Script = Get-ChildItem -Path "$HOME\Downloads" -Filter "SuperScanner.ps1" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1; if ($Script) { Unblock-File -Path $Script.FullName; cd $Script.DirectoryName; .\SuperScanner.ps1 } else { Write-Host "[-] File SuperScanner.ps1 not found in Downloads! Please make sure the ZIP archive is fully extracted." -ForegroundColor Red }
 ```
 
 ---
