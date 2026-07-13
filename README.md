@@ -1,4 +1,4 @@
-# 🥞 PancakeScanner v3.9 (PowerShell)
+# 🥞 PancakeScanner v3.9.2 (PowerShell)
 
 **PancakeScanner** is a fast, lightweight, and completely open-source Windows security scanner built with PowerShell. It scans your system in less than 3 seconds to detect hidden registry startup traps, adware shortcuts, high-CPU miners, and malicious services that standard antiviruses often miss.
 
