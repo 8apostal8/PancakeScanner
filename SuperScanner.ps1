@@ -84,7 +84,9 @@ if ($TotalThreats -gt 0) {
 } else { Write-Host "               SCAN COMPLETE: SYSTEM IS FULLY CLEAN!           " -ForegroundColor Green -BackgroundColor Black }
 Write-Host "===============================================================" -ForegroundColor Cyan
 $SaveChoice = Read-Host "`nSave scan report to Desktop? (Y/N)"; if ($SaveChoice -eq "Y" -or $SaveChoice -eq "y") {
-    $ReportPath = "$HOME\Desktop\Pancake_Report.txt"; $ReportContent = @("=======================================================", "               🥞 PancakeScanner Security Report               ", "=======================================================", "Scan Date: $(Get-Date)", "Total Potential Threats Found: $TotalThreats", "-------------------------------------------------------")
+          $ReportContent = @("=======================================================", "               🥞 PancakeScanner Security Report       ", "=======================================================", "Scan Date: $(Get-Date)", "Total Threats Found: $TotalThreats", "-------------------------------------------------------")
+    if ($TotalThreats -gt 0) { foreach ($Threat in $ThreatList) { $ReportContent += " [x] $Threat" } } else { $ReportContent += " -> SYSTEM IS COMPLETELY CLEAN AND SAFE!" }
+
     if ($TotalThreats -gt 0) { foreach ($Threat in $ThreatList) { $ReportContent += " [x] $Threat" } } else { $ReportContent += " -> SYSTEM IS COMPLETELY CLEAN AND SAFE!" }
     $ReportContent | Out-File -FilePath $ReportPath -Encoding utf8; Write-Host "[+] Success! Report saved to Desktop as 'Pancake_Report.txt'" -ForegroundColor Green
 }
