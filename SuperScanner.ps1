@@ -1,7 +1,7 @@
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { Write-Host "[-] Please run this script as Administrator!" -ForegroundColor Red; Read-Host -Prompt "Press ENTER to exit..."; exit }
 Clear-Host; $TotalThreats = 0; $ThreatList = @()
 Write-Host "===============================================================" -ForegroundColor Cyan
-Write-Host "               🥞 PancakeScanner Ultimate PRO v3.9.3           " -ForegroundColor Cyan
+Write-Host "               🥞 PancakeScanner Ultimate PRO v3.9.4           " -ForegroundColor Cyan
 Write-Host "===============================================================" -ForegroundColor Cyan
 Write-Host " Express Scan (Check active miners, adware shortcuts, HOSTS)" -ForegroundColor Yellow
 Write-Host " Deep Scan    (Full 10-point system security audit)" -ForegroundColor Blue
@@ -83,12 +83,12 @@ if ($TotalThreats -gt 0) {
     Write-Host "-------------------------------------" -ForegroundColor Red
 } else { Write-Host "               SCAN COMPLETE: SYSTEM IS FULLY CLEAN!           " -ForegroundColor Green -BackgroundColor Black }
 Write-Host "===============================================================" -ForegroundColor Cyan
-$SaveChoice = Read-Host "`nSave scan report to Desktop? (Y/N)"; if ($SaveChoice -eq "Y" -or $SaveChoice -eq "y") {
-          $ReportContent = @("=======================================================", "               🥞 PancakeScanner Security Report       ", "=======================================================", "Scan Date: $(Get-Date)", "Total Threats Found: $TotalThreats", "-------------------------------------------------------")
+$SaveChoice = Read-Host "`nSave scan report to Desktop? (Y/N)"
+if ($SaveChoice -eq "Y" -or $SaveChoice -eq "y") {
+    $ReportContent = @("=======================================================", "               🥞 PancakeScanner Security Report       ", "=======================================================", "Scan Date: $(Get-Date)", "Total Threats Found: $TotalThreats", "-------------------------------------------------------")
     if ($TotalThreats -gt 0) { foreach ($Threat in $ThreatList) { $ReportContent += " [x] $Threat" } } else { $ReportContent += " -> SYSTEM IS COMPLETELY CLEAN AND SAFE!" }
-
-    if ($TotalThreats -gt 0) { foreach ($Threat in $ThreatList) { $ReportContent += " [x] $Threat" } } else { $ReportContent += " -> SYSTEM IS COMPLETELY CLEAN AND SAFE!" }
-    $ReportContent | Out-File -FilePath $ReportPath -Encoding utf8; Write-Host "[+] Success! Report saved to Desktop as 'Pancake_Report.txt'" -ForegroundColor Green
+    $ReportContent | Out-File -FilePath "$HOME\Desktop\Pancake_Report.txt" -Encoding utf8
+    Write-Host "[+] Success! Report saved to Desktop as 'Pancake_Report.txt'" -ForegroundColor Green
 }
 Write-Host "`n[A] Install Autonomous Protection (Scans system background every 1 hour)" -ForegroundColor Magenta
 Write-Host "[E] Exit" -ForegroundColor Gray
@@ -96,9 +96,9 @@ $Choice = Read-Host "`nChoose an option (A/E)"
 if ($Choice -eq "A" -or $Choice -eq "a") {
     $CurrentScript = $MyInvocation.MyCommand.Path
     $Action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File `"$CurrentScript`""
-$Trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Hours 1)
-$Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
-Register-ScheduledTask -TaskName "PancakeAutonomousGuard" -Action $Action -Trigger $Trigger -Settings $Settings -User "NT AUTHORITY\SYSTEM" -Force | Out-Null
-Write-Host "`n[+] Success! PancakeAutonomousGuard installed. Your PC is scanned silently every hour!" -ForegroundColor Green; Start-Sleep -Seconds 3
+    $Trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Hours 1)
+    $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
+    Register-ScheduledTask -TaskName "PancakeAutonomousGuard" -Action $Action -Trigger $Trigger -Settings $Settings -User "NT AUTHORITY\SYSTEM" -Force | Out-Null
+    Write-Host "`n[+] Success! PancakeAutonomousGuard installed. Your PC is scanned silently every hour!" -ForegroundColor Green; Start-Sleep -Seconds 3
 }
 exit
